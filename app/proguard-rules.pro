@@ -114,3 +114,9 @@
 -dontwarn org.conscrypt.**
 -dontwarn org.bouncycastle.**
 -dontwarn org.openjsse.**
+
+# Markwon plugins
+-keep class com.caverock.androidsvg.** { *; }
+-dontwarn com.caverock.androidsvg.**
+-keep class pl.droidsonroids.gif.** { *; }
+-dontwarn pl.droidsonroids.gif.**
