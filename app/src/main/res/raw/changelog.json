@@ -1,6 +1,15 @@
 {
   "Entries": [
     {
+      "VersionCode": 2170221,
+      "Title": "Changes in version 2.17.2",
+      "Messages": [
+        "Fix 'Unknown' network type not handled correctly when uploading measurements to BeaconDB.",
+        "Improve compatibility with Android 16.",
+        "Update translations."
+      ]
+    },
+    {
       "VersionCode": 2170120,
       "Title": "Changes in version 2.17.1",
       "Messages": [
@@ -33,14 +42,6 @@
         "Enable upload of 5G (NR) cells to BeaconDB.",
         "Show warning when uploading to custom BeaconDB url which is invalid.",
         "Add option to select clustering level on the map."
-      ]
-    },
-    {
-      "VersionCode": 2150516,
-      "Title": "Changes in version 2.15.5",
-      "Messages": [
-        "Fix battery optimization detection on Android 15.",
-        "Extend background location permission rationale to be more compliant with Google Play policy."
       ]
     }
   ]
