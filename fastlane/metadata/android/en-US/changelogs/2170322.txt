@@ -1,0 +1,1 @@
+- Update background location permission rationale to satisfy Google Play Prominent Disclosure requirement.

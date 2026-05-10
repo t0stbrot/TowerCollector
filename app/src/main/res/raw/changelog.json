@@ -1,6 +1,13 @@
 {
   "Entries": [
     {
+      "VersionCode": 2170322,
+      "Title": "Changes in version 2.17.3",
+      "Messages": [
+        "Update background location permission rationale to satisfy Google Play Prominent Disclosure requirement."
+      ]
+    },
+    {
       "VersionCode": 2170221,
       "Title": "Changes in version 2.17.2",
       "Messages": [
