@@ -120,3 +120,21 @@
 -dontwarn com.caverock.androidsvg.**
 -keep class pl.droidsonroids.gif.** { *; }
 -dontwarn pl.droidsonroids.gif.**
+
+# Prevent R8 from stripping WorkManager's internal auto-generated database implementation
+-keep class androidx.work.impl.WorkDatabase_Impl { *; }
+
+# Protect WorkManager internal implementations
+-keep class androidx.work.impl.** { *; }
+-dontwarn androidx.work.impl.**
+
+# Protect ctors of your own Workers (required to instantiate)
+-keepclassmembers class * extends androidx.work.Worker {
+    public <init>(android.content.Context, androidx.work.WorkerParameters);
+}
+-keepclassmembers class * extends androidx.work.ListenableWorker {
+    public <init>(android.content.Context, androidx.work.WorkerParameters);
+}
+
+# Protect App Startup (responsible for WorkManagera initialization)
+-keep class androidx.startup.** { *; }
