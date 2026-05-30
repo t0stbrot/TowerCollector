@@ -1,6 +1,15 @@
 {
   "Entries": [
     {
+      "VersionCode": 2180528,
+      "Title": "Changes in version 2.18.0",
+      "Messages": [
+        "Improve compatibility with Android 17 and 16.",
+        "Hide 'Project support' link on Google Play's app version.",
+        "Update external libraries."
+      ]
+    },
+    {
       "VersionCode": 2170423,
       "Title": "Changes in version 2.17.4",
       "Messages": [
@@ -47,15 +56,6 @@
       "Title": "Changes in version 2.16.0",
       "Messages": [
         "Improve compatibility with Android 15."
-      ]
-    },
-    {
-      "VersionCode": 2150617,
-      "Title": "Changes in version 2.15.6",
-      "Messages": [
-        "Enable upload of 5G (NR) cells to BeaconDB.",
-        "Show warning when uploading to custom BeaconDB url which is invalid.",
-        "Add option to select clustering level on the map."
       ]
     }
   ]

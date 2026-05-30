@@ -1,0 +1,3 @@
+- Improve compatibility with Android 17 and 16.
+- Hide 'Project support' link on Google Play's app version.
+- Update external libraries.
