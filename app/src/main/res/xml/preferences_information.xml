@@ -18,9 +18,9 @@
             app:summary="@string/preferences_contact_email_link_summary"
             app:title="@string/preferences_contact_email_link_title"/>
         <PreferenceScreen
-            app:key="@string/preferences_donate_link_key"
-            app:summary="@string/preferences_donate_link_summary"
-            app:title="@string/preferences_donate_link_title"/>
+            app:key="@string/preferences_project_support_link_key"
+            app:summary="@string/preferences_project_support_link_summary"
+            app:title="@string/preferences_project_support_link_title"/>
         <PreferenceScreen
             app:key="@string/preferences_github_link_key"
             app:summary="@string/preferences_github_link_summary"

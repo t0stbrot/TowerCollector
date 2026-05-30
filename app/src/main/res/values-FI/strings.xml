@@ -106,7 +106,7 @@
     <string name="main_menu_help_button">Ohje</string>
     <string name="main_menu_preferences_button">Asetukset</string>
     <string name="main_menu_network_type_button">Verkon tyyppi</string>
-    <string name="main_menu_donate_button">Lahjoittaa</string>
+    <string name="main_menu_project_support_button">Projektituki</string>
     <string name="collector_notification_channel_name">Collector</string>
     <string name="collector_notification_title">Kerätään</string>
     <string name="collector_notification_stats">Tänään <xliff:g id="number_of_measurements">%1$d</xliff:g> mittausta <xliff:g id="number_of_cells">%2$d</xliff:g> solusta.</string>
@@ -379,8 +379,8 @@
     <string name="preferences_website_link_summary">Avaa kehittäjän verkkosivuston, joka sisältää kuvauksen ja sovelluskauppojen latauslinkit.</string>
     <string name="preferences_contact_email_link_title">Ota yhteyttä kehittäjään</string>
     <string name="preferences_contact_email_link_summary">Lähetä sähköpostia, jossa kerrot ongelmistasi, kysymyksistäsi ja ideoistasi kehittäjälle.</string>
-    <string name="preferences_donate_link_title">Lahjoittaa</string>
-    <string name="preferences_donate_link_summary">Sano kiitos ja osoita tukesi sovellukselle.</string>
+    <string name="preferences_project_support_link_title">Lahjoittaa</string>
+    <string name="preferences_project_support_link_summary">Sano kiitos ja osoita tukesi sovellukselle.</string>
     <string name="preferences_github_link_title">GitHub -sivu</string>
     <string name="preferences_github_link_summary">Avaa GitHub -sivun, josta voit löytää sovelluksen lähdekoodin, osallistua sen kehittämiseen, raportoida siinä esiintyvistä ongelmista ja jakaa ideoita sen parantamiseksi.</string>
     <string name="preferences_facebook_community_link_title">Facebook-yhteisö</string>

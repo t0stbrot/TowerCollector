@@ -106,7 +106,7 @@
     <string name="main_menu_help_button">Súgó</string>
     <string name="main_menu_preferences_button">Beállítások</string>
     <string name="main_menu_network_type_button">Hálózattípus</string>
-    <string name="main_menu_donate_button">Adományoz</string>
+    <string name="main_menu_project_support_button">Projekttámogatás</string>
     <string name="collector_notification_channel_name">Adatgyűjtő</string>
     <string name="collector_notification_title">Adatgyűjtés</string>
     <string name="collector_notification_stats">Ma <xliff:g id="number_of_measurements">%1$d</xliff:g> méréssel <xliff:g id="number_of_cells">%2$d</xliff:g> cellát gyűjtöttél.</string>
@@ -379,8 +379,8 @@
     <string name="preferences_website_link_summary">Megnyitja a fejlesztő weboldalát, ahol linket találsz a leíráshoz és az alkalmazás letöltéséhez.</string>
     <string name="preferences_contact_email_link_title">Kapcsolatfelvétel a fejlesztővel</string>
     <string name="preferences_contact_email_link_summary">E-mailt küldhetsz a fejlesztőnek, amelyben kifejtheted problémáidat, kérdéseidet és ötleteidet.</string>
-    <string name="preferences_donate_link_title">Adományoz</string>
-    <string name="preferences_donate_link_summary">Mondjon köszönetet, és mutasson támogatást az alkalmazás iránt.</string>
+    <string name="preferences_project_support_link_title">Adományoz</string>
+    <string name="preferences_project_support_link_summary">Mondjon köszönetet, és mutasson támogatást az alkalmazás iránt.</string>
     <string name="preferences_github_link_title">GitHub oldal</string>
     <string name="preferences_github_link_summary">Megnyitja a GitHub oldalt, ahol megtalálhatod a forráskódot, hozzájárulhatsz az alkalmazáshoz, jelenthetsz problémákat és megoszthatod ötleteidet.</string>
     <string name="preferences_facebook_community_link_title">Facebook közösség</string>

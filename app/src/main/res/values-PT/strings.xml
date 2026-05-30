@@ -106,7 +106,7 @@
     <string name="main_menu_help_button">Ajuda</string>
     <string name="main_menu_preferences_button">Preferências</string>
     <string name="main_menu_network_type_button">Tipo de rede</string>
-    <string name="main_menu_donate_button">Doar</string>
+    <string name="main_menu_project_support_button">Apoio ao projeto</string>
     <string name="collector_notification_channel_name">Coletor</string>
     <string name="collector_notification_title">Coletando</string>
     <string name="collector_notification_stats"><xliff:g id="number_of_measurements">%1$d</xliff:g> medições de <xliff:g id="number_of_cells">%2$d</xliff:g> células hoje.</string>
@@ -379,8 +379,8 @@
     <string name="preferences_website_link_summary">Abre o website do desenvolvedor contendo a descrição e o link para download nas app stores.</string>
     <string name="preferences_contact_email_link_title">Contactar desenvolvedor</string>
     <string name="preferences_contact_email_link_summary">Envia um e-mail com seus problemas, perguntas e idéias ao desenvolvedor.</string>
-    <string name="preferences_donate_link_title">Doar</string>
-    <string name="preferences_donate_link_summary">Agradeça e mostre seu apoio ao aplicativo.</string>
+    <string name="preferences_project_support_link_title">Doar</string>
+    <string name="preferences_project_support_link_summary">Agradeça e mostre seu apoio ao aplicativo.</string>
     <string name="preferences_github_link_title">Página GitHub</string>
     <string name="preferences_github_link_summary">Abre a página do GitHub, onde você pode encontrar o código fonte, contribuir com o aplicativo, relatar problemas e compartilhar idéias.</string>
     <string name="preferences_facebook_community_link_title">Comunidade do Facebook</string>

@@ -106,7 +106,7 @@
     <string name="main_menu_help_button">עזרה</string>
     <string name="main_menu_preferences_button">העדפות</string>
     <string name="main_menu_network_type_button">סוג רשת</string>
-    <string name="main_menu_donate_button">לִתְרוֹם</string>
+    <string name="main_menu_project_support_button">תמיכה בפרויקט</string>
     <string name="collector_notification_channel_name">מנגנון איסוף</string>
     <string name="collector_notification_title">מתבצע איסוף</string>
     <string name="collector_notification_stats">היום <xliff:g id="number_of_measurements">%1$d</xliff:g> מדידות עבור <xliff:g id="number_of_cells">%2$d</xliff:g> תאים.</string>
@@ -379,8 +379,8 @@
     <string name="preferences_website_link_summary">פותח את אתר המפתח שמכיל תיאור וקישורים להורדה מחנויות היישומונים.</string>
     <string name="preferences_contact_email_link_title">יצירת קשר עם המפתח</string>
     <string name="preferences_contact_email_link_summary">מאפשר שליחת דוא״ל עם התקלות, השאלות והרעיונות שלך למפתח.</string>
-    <string name="preferences_donate_link_title">לִתְרוֹם</string>
-    <string name="preferences_donate_link_summary">אמור תודה והראה את תמיכתך באפליקציה.</string>
+    <string name="preferences_project_support_link_title">לִתְרוֹם</string>
+    <string name="preferences_project_support_link_summary">אמור תודה והראה את תמיכתך באפליקציה.</string>
     <string name="preferences_github_link_title">עמוד ב־GitHub</string>
     <string name="preferences_github_link_summary">פתיחת העמוד ב־GitHub בו ניתן למצוא את קוד המקור, לתרום ליישומון, לדווח על תקלות ולשתף רעיונות.</string>
     <string name="preferences_facebook_community_link_title">קהילת פייסבוק</string>

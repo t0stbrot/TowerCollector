@@ -43,7 +43,7 @@ public abstract class DialogEnabledPreferenceFragment extends PreferenceFragment
                 try {
                     Intent open = new Intent(Intent.ACTION_VIEW);
                     open.setData(Uri.parse(getString(urlResourceId)));
-                    startActivity(open);
+                    startActivity(Intent.createChooser(open, null));
                 } catch (ActivityNotFoundException ex) {
                     Toast.makeText(getActivity(), R.string.web_browser_missing, Toast.LENGTH_LONG).show();
                 }

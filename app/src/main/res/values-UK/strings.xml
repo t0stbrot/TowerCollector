@@ -106,7 +106,7 @@
     <string name="main_menu_help_button">Допомога</string>
     <string name="main_menu_preferences_button">Вподобання</string>
     <string name="main_menu_network_type_button">Тип мережі</string>
-    <string name="main_menu_donate_button">Пожертвуйте</string>
+    <string name="main_menu_project_support_button">Підтримка проекту</string>
     <string name="collector_notification_channel_name">Збирач</string>
     <string name="collector_notification_title">Збір</string>
     <string name="collector_notification_stats">Сьогодні <xliff:g id="number_of_measurements">%1$d</xliff:g> виміряно <xliff:g id="number_of_cells">%2$d</xliff:g> сот.</string>
@@ -379,8 +379,8 @@
     <string name="preferences_website_link_summary">Відкриває веб-сайт розробника, де містяться описи та магазини завантажень додатків.</string>
     <string name="preferences_contact_email_link_title">Зв\'язатися з розробником</string>
     <string name="preferences_contact_email_link_summary">Надсилання електронною поштою виявлені проблеми, питання та ідеї розробнику.</string>
-    <string name="preferences_donate_link_title">Пожертвуйте</string>
-    <string name="preferences_donate_link_summary">Скажіть подяку та підтримайте додаток.</string>
+    <string name="preferences_project_support_link_title">Пожертвуйте</string>
+    <string name="preferences_project_support_link_summary">Скажіть подяку та підтримайте додаток.</string>
     <string name="preferences_github_link_title">Сторінка GitHub</string>
     <string name="preferences_github_link_summary">Відкриває сторінку GitHub, де ви можете знайти вихідний код, внести вклад у програму, повідомити про проблеми та обмінятися ідеями.</string>
     <string name="preferences_facebook_community_link_title">Спільнота Facebook</string>

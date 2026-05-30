@@ -341,8 +341,8 @@ public class MainActivity extends AppCompatActivity
         } else if (itemId == R.id.main_menu_network_type) {
             startNetworkTypeSystemActivity();
             return true;
-        } else if (itemId == R.id.main_menu_donate) {
-            startDonateWebBrowserActivity();
+        } else if (itemId == R.id.main_menu_project_support) {
+            startProjectSupportWebBrowserActivity();
             return true;
         } else {
             return super.onOptionsItemSelected(item);
@@ -1529,11 +1529,11 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    private void startDonateWebBrowserActivity() {
+    private void startProjectSupportWebBrowserActivity() {
         try {
             Intent open = new Intent(Intent.ACTION_VIEW);
-            open.setData(Uri.parse(getString(R.string.preferences_donate_link)));
-            startActivity(open);
+            open.setData(Uri.parse(getString(R.string.preferences_project_support_link)));
+            startActivity(Intent.createChooser(open, null));
         } catch (ActivityNotFoundException ex) {
             Toast.makeText(getApplication(), R.string.web_browser_missing, Toast.LENGTH_LONG).show();
         }

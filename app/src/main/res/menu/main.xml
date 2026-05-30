@@ -46,9 +46,9 @@
                 android:title="@string/main_menu_network_type_button"
                 app:showAsAction="always" />
             <item
-                android:id="@+id/main_menu_donate"
-                android:icon="@drawable/menu_donate"
-                android:title="@string/main_menu_donate_button"
+                android:id="@+id/main_menu_project_support"
+                android:icon="@drawable/menu_project_support"
+                android:title="@string/main_menu_project_support_button"
                 app:showAsAction="always" />
         </menu>
     </item>
