@@ -69,9 +69,6 @@ public class SplashActivity extends Activity {
     protected void onStart() {
         super.onStart();
         Timber.d("onStart(): Starting splash screen");
-        if (ApkUtils.isBackInvokedCallbackAware(MyApplication.getApplication())) {
-            getOnBackInvokedDispatcher().registerOnBackInvokedCallback(OnBackInvokedDispatcher.PRIORITY_DEFAULT, backInvokedCallback);
-        }
         Intent startupIntent = getIntent();
         if (startupIntent != null) {
             String action = startupIntent.getStringExtra(SHORTCUT_ACTION);
@@ -111,9 +108,7 @@ public class SplashActivity extends Activity {
     protected void onStop() {
         super.onStop();
         Timber.d("onStop(): Stopping splash screen");
-        if (ApkUtils.isBackInvokedCallbackAware(MyApplication.getApplication())) {
-            getOnBackInvokedDispatcher().unregisterOnBackInvokedCallback(backInvokedCallback);
-        }
+        unregisterBackCallback();
     }
 
     @Override
@@ -126,11 +121,37 @@ public class SplashActivity extends Activity {
         if (databaseUpgradeRunning) {
             Toast.makeText(this, R.string.splash_toast_database_upgrade_running, Toast.LENGTH_SHORT).show();
         } else {
-            if (ApkUtils.isBackInvokedCallbackAware(MyApplication.getApplication())) {
-                finish();
-            } else {
-                super.onBackPressed();
-            }
+            finish();
+        }
+    }
+
+    private void registerBackCallback() {
+        if (ApkUtils.isBackInvokedCallbackAware(MyApplication.getApplication()) && backInvokedCallback != null) {
+            getMainHandler().post(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        getOnBackInvokedDispatcher().registerOnBackInvokedCallback(OnBackInvokedDispatcher.PRIORITY_DEFAULT, backInvokedCallback);
+                    } catch (Exception ex) {
+                        Timber.w(ex, "Failed to register back callback");
+                    }
+                }
+            });
+        }
+    }
+
+    private void unregisterBackCallback() {
+        if (ApkUtils.isBackInvokedCallbackAware(MyApplication.getApplication()) && backInvokedCallback != null) {
+            getMainHandler().post(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        getOnBackInvokedDispatcher().unregisterOnBackInvokedCallback(backInvokedCallback);
+                    } catch (Exception ex) {
+                        Timber.w(ex, "Failed to unregister back callback");
+                    }
+                }
+            });
         }
     }
 
@@ -207,12 +228,14 @@ public class SplashActivity extends Activity {
         if (currentDbVersion != MeasurementsDatabase.DATABASE_FILE_VERSION) {
             Timber.d("ensureDatabaseUpToDate(): Upgrading database");
             databaseUpgradeRunning = true;
+            registerBackCallback();
             showDetailsMessage();
             // show progress dialog only when migrating database
             DatabaseUpgradeTask databaseMigrationTask = new DatabaseUpgradeTask(this, currentDbVersion);
             databaseMigrationTask.upgrade();
             hideDetailsMessage();
             databaseUpgradeRunning = false;
+            unregisterBackCallback();
         }
         // Load last measurement and stats into cache
         MeasurementsDatabase.getInstance(MyApplication.getApplication()).getLastMeasurement();
@@ -224,12 +247,14 @@ public class SplashActivity extends Activity {
         if (currentPreferencesVersion != PreferencesProvider.PREFERENCES_VERSION) {
             Timber.d("ensurePreferencesUpToDate(): Upgrading preferences");
             databaseUpgradeRunning = true; // reuse intentionally as it should be fast and is executed in series
+            registerBackCallback();
             showDetailsMessage();
             // show progress dialog only when migrating preferences
             PreferencesUpgradeTask preferencesUpgradeTask = new PreferencesUpgradeTask(MyApplication.getApplication(), currentPreferencesVersion);
             preferencesUpgradeTask.upgrade();
             hideDetailsMessage();
             databaseUpgradeRunning = false;
+            unregisterBackCallback();
         }
     }
 
