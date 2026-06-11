@@ -590,6 +590,7 @@ public class CollectorService extends Service {
         measurementUpdater.setLastNetMonsterCell(cells);
     }
 
+    @SuppressWarnings("MissingPermission") // because it's requested before running the service and wrapped in try-catch on calling site, not reported as compilation error target on API <= 36
     private void processCellLocation(TelephonyManager telephonyManager, CellLocation
             cellLocation, List<NeighboringCellInfo> neighboringCells) {
         // get network type

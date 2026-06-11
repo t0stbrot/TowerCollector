@@ -69,6 +69,7 @@ public class SplashActivity extends Activity {
     protected void onStart() {
         super.onStart();
         Timber.d("onStart(): Starting splash screen");
+        registerBackCallback();
         Intent startupIntent = getIntent();
         if (startupIntent != null) {
             String action = startupIntent.getStringExtra(SHORTCUT_ACTION);
@@ -109,11 +110,6 @@ public class SplashActivity extends Activity {
         super.onStop();
         Timber.d("onStop(): Stopping splash screen");
         unregisterBackCallback();
-    }
-
-    @Override
-    public void onBackPressed() {
-        handleBackPressed();
     }
 
     private void handleBackPressed() {
@@ -228,14 +224,12 @@ public class SplashActivity extends Activity {
         if (currentDbVersion != MeasurementsDatabase.DATABASE_FILE_VERSION) {
             Timber.d("ensureDatabaseUpToDate(): Upgrading database");
             databaseUpgradeRunning = true;
-            registerBackCallback();
             showDetailsMessage();
             // show progress dialog only when migrating database
             DatabaseUpgradeTask databaseMigrationTask = new DatabaseUpgradeTask(this, currentDbVersion);
             databaseMigrationTask.upgrade();
             hideDetailsMessage();
             databaseUpgradeRunning = false;
-            unregisterBackCallback();
         }
         // Load last measurement and stats into cache
         MeasurementsDatabase.getInstance(MyApplication.getApplication()).getLastMeasurement();
@@ -247,14 +241,12 @@ public class SplashActivity extends Activity {
         if (currentPreferencesVersion != PreferencesProvider.PREFERENCES_VERSION) {
             Timber.d("ensurePreferencesUpToDate(): Upgrading preferences");
             databaseUpgradeRunning = true; // reuse intentionally as it should be fast and is executed in series
-            registerBackCallback();
             showDetailsMessage();
             // show progress dialog only when migrating preferences
             PreferencesUpgradeTask preferencesUpgradeTask = new PreferencesUpgradeTask(MyApplication.getApplication(), currentPreferencesVersion);
             preferencesUpgradeTask.upgrade();
             hideDetailsMessage();
             databaseUpgradeRunning = false;
-            unregisterBackCallback();
         }
     }
 
