@@ -11,6 +11,9 @@ android {
 
     defaultConfig {
         applicationId "info.zamojski.soft.towercollector"
+        minSdkVersion 23
+        targetSdkVersion 37
+        compileSdk 37
         minSdkVersion 21
         targetSdkVersion 35
         compileSdk 35
