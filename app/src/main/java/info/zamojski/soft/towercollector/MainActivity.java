@@ -151,6 +151,7 @@ public class MainActivity extends AppCompatActivity
     private MenuItem startMenu;
     private MenuItem stopMenu;
     private MenuItem networkTypeMenu;
+    private MenuItem projectSupportMenu;
 
     private TabLayout tabLayout;
 
@@ -300,6 +301,7 @@ public class MainActivity extends AppCompatActivity
         startMenu = menu.findItem(R.id.main_menu_start);
         stopMenu = menu.findItem(R.id.main_menu_stop);
         networkTypeMenu = menu.findItem(R.id.main_menu_network_type);
+        projectSupportMenu = menu.findItem(R.id.main_menu_project_support);
         mainMenu = menu;// store the menu in an local variable for hardware key
         return true;
     }
@@ -313,6 +315,7 @@ public class MainActivity extends AppCompatActivity
         stopMenu.setVisible(isRunning);
         boolean networkTypeAvailable = canStartNetworkTypeSystemActivity();
         networkTypeMenu.setVisible(networkTypeAvailable);
+        projectSupportMenu.setVisible(BuildConfig.PROJECT_SUPPORT_VISIBLE);
         return super.onPrepareOptionsMenu(menu);
     }
 

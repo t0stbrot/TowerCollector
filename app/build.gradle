@@ -169,6 +169,7 @@ def setBuildConfigFieldsFromProps(Properties props) {
     // Other
     android.defaultConfig.buildConfigField "String", "UPDATE_CHECK_FEED_URI", props['other_updateCheckFeedUri']
     android.defaultConfig.buildConfigField "String", "CONTACT_EMAIL", rot135(props['other_contactEmail'])
+    android.defaultConfig.buildConfigField "boolean", "PROJECT_SUPPORT_VISIBLE", props['other_projectSupportVisible']
 }
 
 String rot135(String s) {
