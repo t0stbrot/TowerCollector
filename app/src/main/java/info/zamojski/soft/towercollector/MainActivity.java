@@ -5,7 +5,6 @@
 package info.zamojski.soft.towercollector;
 
 import android.Manifest;
-import androidx.annotation.RequiresApi;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
@@ -43,6 +42,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -165,6 +165,8 @@ public class MainActivity extends AppCompatActivity
 
     private boolean isFirstStart = true;
 
+    private boolean isInUseForWhile = false;
+
     // ========== ACTIVITY ========== //
 
     @Override
@@ -187,8 +189,9 @@ public class MainActivity extends AppCompatActivity
         viewPager.setAdapter(pageAdapter);
         tabLayout = findViewById(R.id.main_tab_layout);
         tabLayout.setupWithViewPager(viewPager);
-
         tabLayout.addOnTabSelectedListener(this);
+
+        isInUseForWhile = MeasurementsDatabase.getInstance(MyApplication.getApplication()).isInUseForWhile();
 
         backgroundTaskHelper = new BackgroundTaskHelper(this);
 
@@ -315,7 +318,7 @@ public class MainActivity extends AppCompatActivity
         stopMenu.setVisible(isRunning);
         boolean networkTypeAvailable = canStartNetworkTypeSystemActivity();
         networkTypeMenu.setVisible(networkTypeAvailable);
-        projectSupportMenu.setVisible(BuildConfig.PROJECT_SUPPORT_VISIBLE);
+        projectSupportMenu.setVisible(BuildConfig.PROJECT_SUPPORT_VISIBLE || isInUseForWhile);
         return super.onPrepareOptionsMenu(menu);
     }
 

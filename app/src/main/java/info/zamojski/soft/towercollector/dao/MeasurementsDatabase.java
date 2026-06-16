@@ -48,6 +48,7 @@ public class MeasurementsDatabase {
 
     private Measurement lastMeasurementCache;
     private Statistics lastStatisticsCache;
+    private Boolean isInUseForWhileCache;
 
     private MeasurementsDatabase(Context context) {
         helper = new MeasurementsOpenHelper(context);
@@ -841,6 +842,7 @@ public class MeasurementsDatabase {
     private void invalidateCache() {
         lastMeasurementCache = null;
         lastStatisticsCache = null;
+        isInUseForWhileCache = null;
     }
 
     // ========== GET DATABASE VERSION ========== //
@@ -927,6 +929,30 @@ public class MeasurementsDatabase {
         }
         cursor.close();
         return count == 4; // number of tables
+    }
+
+    public boolean isInUseForWhile() {
+        // Try to get from cache then read from DB (copy to local to avoid null if invalidated in the meantime)
+        Boolean isInUseForWhileCacheCopy = this.isInUseForWhileCache;
+        if (isInUseForWhileCacheCopy != null) {
+            Timber.d("hasBeenUsedForWhile(): Value from cache: %s", isInUseForWhileCacheCopy);
+            return isInUseForWhileCache;
+        }
+        Timber.d("hasBeenUsedForWhile(): Checking if application has been used for a while");
+        // Calculate the timestamp for exactly 33 days ago
+        long diffInMillis = 33L * 24 * 60 * 60 * 1000; // in days
+        long since = System.currentTimeMillis() - diffInMillis;
+        SQLiteDatabase db = helper.getReadableDatabase();
+        int result = -1;
+        String query = "SELECT 1 FROM " + StatsTable.TABLE_NAME + " WHERE " + StatsTable.COLUMN_TOTAL_MEASUREMENTS + " > 222 AND " + StatsTable.COLUMN_TOTAL_DISCOVERED_CELLS +
+                " > 22 AND " + StatsTable.COLUMN_TOTAL_SINCE + " < " + since;
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor.moveToNext()) {
+            result = cursor.getInt(0);
+        }
+        cursor.close();
+        this.isInUseForWhileCache = result == 1;
+        return result == 1;
     }
 
     // ========== INNER OBJECTS ========== //
