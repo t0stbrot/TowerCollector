@@ -62,7 +62,7 @@ android {
             signingConfigs.official.keyAlias props['sign_keyAlias']
             signingConfigs.official.keyPassword props['sign_keyPassword']
 
-            setBuildConfigFieldsFromProps(props)
+            setBuildConfigFieldsFromProps(it, props)
         }
         fdroid {
             dimension "market"
@@ -77,7 +77,7 @@ android {
             signingConfigs.fdroid.keyAlias props['sign_keyAlias']
             signingConfigs.fdroid.keyPassword props['sign_keyPassword']
 
-            setBuildConfigFieldsFromProps(props)
+            setBuildConfigFieldsFromProps(it, props)
         }
     }
     buildTypes {
@@ -153,23 +153,23 @@ Properties getCustomProperties(String currentFlavor) {
     return null
 }
 
-def setBuildConfigFieldsFromProps(Properties props) {
+def setBuildConfigFieldsFromProps(flavor, Properties props) {
     // ACRA
-    android.defaultConfig.buildConfigField "boolean", "ACRA_SEND_REPORTS_IN_DEV_MODE", props['acra_sendReportsInDevMode']
-    android.defaultConfig.buildConfigField "boolean", "ACRA_SETTINGS_AVAILABLE", props['acra_settings_available']
-    android.defaultConfig.buildConfigField "String", "ACRA_FORM_URI", props['acra_formUri']
-    android.defaultConfig.buildConfigField "String", "ACRA_HTTP_METHOD", props['acra_httpMethod']
-    android.defaultConfig.buildConfigField "String", "ACRA_REPORT_TYPE", props['acra_reportType']
-    android.defaultConfig.buildConfigField "String", "ACRA_FORM_URI_BASIC_AUTH_LOGIN", rot135(props['acra_formUriBasicAuthLogin'])
-    android.defaultConfig.buildConfigField "String", "ACRA_FORM_URI_BASIC_AUTH_PASSWORD", rotHex(props['acra_formUriBasicAuthPassword'])
+    flavor.buildConfigField "boolean", "ACRA_SEND_REPORTS_IN_DEV_MODE", props['acra_sendReportsInDevMode']
+    flavor.buildConfigField "boolean", "ACRA_SETTINGS_AVAILABLE", props['acra_settings_available']
+    flavor.buildConfigField "String", "ACRA_FORM_URI", props['acra_formUri']
+    flavor.buildConfigField "String", "ACRA_HTTP_METHOD", props['acra_httpMethod']
+    flavor.buildConfigField "String", "ACRA_REPORT_TYPE", props['acra_reportType']
+    flavor.buildConfigField "String", "ACRA_FORM_URI_BASIC_AUTH_LOGIN", rot135(props['acra_formUriBasicAuthLogin'])
+    flavor.buildConfigField "String", "ACRA_FORM_URI_BASIC_AUTH_PASSWORD", rotHex(props['acra_formUriBasicAuthPassword'])
     // Analytics
-    android.defaultConfig.buildConfigField "boolean", "ANALYTICS_AVAILABLE", props['analytics_available']
+    flavor.buildConfigField "boolean", "ANALYTICS_AVAILABLE", props['analytics_available']
     // OCID
-    android.defaultConfig.buildConfigField "String", "OCID_API_KEY", rotHex(props['ocid_apiKey'])
+    flavor.buildConfigField "String", "OCID_API_KEY", rotHex(props['ocid_apiKey'])
     // Other
-    android.defaultConfig.buildConfigField "String", "UPDATE_CHECK_FEED_URI", props['other_updateCheckFeedUri']
-    android.defaultConfig.buildConfigField "String", "CONTACT_EMAIL", rot135(props['other_contactEmail'])
-    android.defaultConfig.buildConfigField "boolean", "PROJECT_SUPPORT_VISIBLE", props['other_projectSupportVisible']
+    flavor.buildConfigField "String", "UPDATE_CHECK_FEED_URI", props['other_updateCheckFeedUri']
+    flavor.buildConfigField "String", "CONTACT_EMAIL", rot135(props['other_contactEmail'])
+    flavor.buildConfigField "boolean", "PROJECT_SUPPORT_VISIBLE", props['other_projectSupportVisible']
 }
 
 String rot135(String s) {
